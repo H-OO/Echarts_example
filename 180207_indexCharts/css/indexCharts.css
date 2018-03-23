@@ -1,0 +1,440 @@
+.inner_box {
+  position: relative;
+  padding-top: 48px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  flex: 1;
+  min-width: 1658px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.inner_box > li {
+  position: relative;
+  float: left;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  width: 520px;
+  height: 420px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.inner_box > li:nth-child(2) {
+  width: 1066px;
+}
+
+/* 设置li内布局 */
+.inner_box > li .chart_title {
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  border-bottom: 2px solid #ccc;
+}
+
+.today_in_out_chart,
+.history_in_out_chart,
+.user_in_out_chart,
+.statistics_chart {
+  height: 366px;
+}
+
+/* 类别或周期切换按钮 */
+.chart_menu {
+  position: absolute;
+  top: 11px;
+  display: flex;
+  height: 28px;
+  border: 1px solid #32b5cb;
+  border-radius: 5px;
+  user-select: none;
+}
+
+.chart_menu > li {
+  flex: 1;
+  width: 75px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 28px;
+  color: #32b5cb;
+  cursor: pointer;
+}
+
+.chart_menu > li.active {
+  transition: all 0.5s;
+  background-color: #32b5cb;
+  color: #fff;
+}
+
+.chart_category_menu {
+  left: 70px;
+}
+
+.chart_cycle_menu {
+  left: 160px;
+}
+
+.chart_detail_menu {
+  position: absolute;
+  top: 57px;
+  left: 20px;
+}
+
+.chart_detail_menu li {
+  float: left;
+  margin-right: 10px;
+  border-radius: 4px;
+  background-color: #f7f7f8;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.chart_detail_menu li:nth-child(2) {
+  padding: 2px 8px;
+}
+
+/* 数据汇总 */
+.gather_title {
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+}
+
+.collect {
+  padding: 12px 20px 0 20px;
+  box-sizing: border-box;
+  height: 220px;
+  background-color: #f7f7f8;
+}
+
+.collect li {
+  float: left;
+  width: 205px;
+  height: 44px;
+  line-height: 54px;
+  border-bottom: 2px solid #ccc;
+  font-size: 14px;
+}
+
+.collect li:nth-child(odd) {
+  margin-right: 28px;
+}
+
+.collect li span {
+  float: right;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.backlog {
+  height: 80px;
+}
+
+.backlog li {
+  float: left;
+  width: 230px;
+  height: 80px;
+  line-height: 80px;
+  text-indent: 25px;
+  background-color: #f7f7f8;
+  font-size: 14px;
+}
+
+.backlog li span {
+  margin-left: 30px;
+  color: #ff0000;
+  font-weight: 900;
+  font-size: 18px;
+}
+
+.backlog li:nth-child(1) {
+  margin-right: 18px;
+}
+
+/* loading ↓↓↓*/
+.chart_loading {
+  position: absolute;
+  top: 52px;
+  left: 0;
+  width: 100%;
+  height: 366px;
+  overflow: hidden;
+  background-color: #fff;
+  /* display: none; */
+}
+.loader_overlay {
+  width: 90px;
+  height: 90px;
+  background: transparent;
+  box-shadow: 0px 0px 0px 300px rgba(255, 255, 255, 0.67),
+    0px 0px 19px 0px rgba(0, 0, 0, 0.16) inset;
+  border-radius: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.loader_cogs {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.loader_cogs__top {
+  position: relative;
+  top: 35px;
+  left: 70px;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: rotate 10s infinite linear;
+  animation: rotate 10s infinite linear;
+}
+.loader_cogs__top div:nth-of-type(1) {
+  -webkit-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+.loader_cogs__top div:nth-of-type(2) {
+  -webkit-transform: rotate(60deg);
+  -ms-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+.loader_cogs__top div:nth-of-type(3) {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.loader_cogs__top div.top_part {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  background: #f98db9;
+}
+.loader_cogs__top div.top_hole {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background: white;
+  position: absolute;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.loader_cogs__left {
+  position: relative;
+  top: 48px;
+  left: 55px;
+  width: 48px;
+  height: 48px;
+  -webkit-transform: rotate(16deg);
+  -ms-transform: rotate(16deg);
+  transform: rotate(16deg);
+  -webkit-animation: rotate_left 10s 0.1s infinite reverse linear;
+  animation: rotate_left 10s 0.1s infinite reverse linear;
+}
+.loader_cogs__left div:nth-of-type(1) {
+  -webkit-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+.loader_cogs__left div:nth-of-type(2) {
+  -webkit-transform: rotate(60deg);
+  -ms-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+.loader_cogs__left div:nth-of-type(3) {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.loader_cogs__left div.left_part {
+  width: 48px;
+  height: 48px;
+  border-radius: 3.6px;
+  position: absolute;
+  background: #97ddff;
+}
+.loader_cogs__left div.left_hole {
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  background: white;
+  position: absolute;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.loader_cogs__bottom {
+  position: relative;
+  top: -5px;
+  left: 115px;
+  width: 36px;
+  height: 36px;
+  -webkit-animation: rotate_left 10.2s 0.4s infinite linear;
+  animation: rotate_left 10.2s 0.4s infinite linear;
+  -webkit-transform: rotate(4deg);
+  -ms-transform: rotate(4deg);
+  transform: rotate(4deg);
+}
+.loader_cogs__bottom div:nth-of-type(1) {
+  -webkit-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+.loader_cogs__bottom div:nth-of-type(2) {
+  -webkit-transform: rotate(60deg);
+  -ms-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+.loader_cogs__bottom div:nth-of-type(3) {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.loader_cogs__bottom div.bottom_part {
+  width: 36px;
+  height: 36px;
+  border-radius: 3px;
+  position: absolute;
+  background: #ffcd66;
+}
+.loader_cogs__bottom div.bottom_hole {
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  background: white;
+  position: absolute;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+/* Animations */
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate_left {
+  from {
+    -webkit-transform: rotate(16deg);
+    transform: rotate(16deg);
+  }
+  to {
+    -webkit-transform: rotate(376deg);
+    transform: rotate(376deg);
+  }
+}
+@keyframes rotate_left {
+  from {
+    -webkit-transform: rotate(16deg);
+    transform: rotate(16deg);
+  }
+  to {
+    -webkit-transform: rotate(376deg);
+    transform: rotate(376deg);
+  }
+}
+@-webkit-keyframes rotate_right {
+  from {
+    -webkit-transform: rotate(4deg);
+    transform: rotate(4deg);
+  }
+  to {
+    -webkit-transform: rotate(364deg);
+    transform: rotate(364deg);
+  }
+}
+@keyframes rotate_right {
+  from {
+    -webkit-transform: rotate(4deg);
+    transform: rotate(4deg);
+  }
+  to {
+    -webkit-transform: rotate(364deg);
+    transform: rotate(364deg);
+  }
+}
+/* loading ↑↑↑*/
+
+/* 下拉列表 ↓↓↓ */
+#select_user {
+  display: inline-block;
+  margin: 0;
+  box-sizing: border-box;
+  width: 126px;
+  height: 23px;
+  line-height: 23px;
+  font-size: 14px;
+  vertical-align: middle;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #dce4ec;
+  color: #95a5a6;
+  border-radius: 3px;
+  font-weight: normal;
+  cursor: pointer;
+  white-space: pre;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  text-align: start;
+  font: 400 13.3333px Arial;
+}
+/* 下拉列表 ↑↑↑ */
+
+/* 规避切换按钮错误 ↓↓↓ */
+.avoid_menu_error {
+  position: absolute;
+  top: 0;
+  width: 240px;
+  height: 50px;
+  background-color: transparent;
+  /* background-color: #ccc; */
+}
+.today_in_out_avoid {
+  left: 66px;
+}
+.history_in_out_avoid {
+  left: 155px;
+}
+/* 规避切换按钮错误 ↑↑↑ */

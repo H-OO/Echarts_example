@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>indexCharts</title>
+  <link rel="stylesheet" href="./css/index.css">
+
+  <!-- 图表相关↓↓↓ -->
+  <link rel="stylesheet" href="./fonts/iconfont.css">
+  <link rel="stylesheet" href="./css/indexCharts.css">
+  <script src="./lib/jquery1.7.2.min.js"></script>
+  <script src="./lib/echarts.js"></script>
+  <script src="./lib/datePicker/WdatePicker.js"></script>
+  <script src="./js/indexCharts.js"></script>
+  <!-- 图表相关↑↑↑ -->
+</head>
+
+<body>
+  <header></header>
+  <section>
+    <aside></aside>
+    <div class="container">
+      <ul class="inner_box">
+        <li>
+          <div class="gather_title">
+            <i class="iconfont icon-shuju"></i>
+            数据汇总
+          </div>
+          <ol class="collect">
+            <li>总收款额
+              <span>￥0.00</span>
+            </li>
+            <li>总付款额
+              <span>￥0.00</span>
+            </li>
+            <li>总手续费
+              <span>￥0.00</span>
+            </li>
+            <li>可用余额
+              <span>￥0.00</keyongspan>
+            </li>
+            <li>今日收款次数
+              <span>0</span>
+            </li>
+            <li>今日付款次数
+              <span>0</span>
+            </li>
+            <li>代付订单数
+              <span>0</span>
+            </li>
+            <li>代付订单完成数
+              <span>0</span>
+            </li>
+          </ol>
+          <div class="gather_title">
+            <i class="iconfont icon-shijian"></i>
+            待办事项
+          </div>
+          <ol class="backlog">
+            <li>待结算订单
+              <span>0</span>
+            </li>
+            <li>待审核订单
+              <span>0</span>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <!-- title -->
+          <div class="chart_title">统计</div>
+          <!-- btn -->
+          <ol class="chart_menu chart_category_menu">
+            <li class="active" data-type="merchant_row">按商户</li>
+            <li data-type="bank_row">按通道</li>
+          </ol>
+          <!-- chart -->
+          <div class="today_in_out_chart"></div>
+          <ol class="chart_detail_menu">
+            <li>
+              <select id="select_user">
+                <!-- <option value="0">全部商户</option> -->
+              </select>
+            </li>
+            <li>
+              <div class="today_in_out_dateMenu" onClick="WdatePicker()">2018-02-27</div>
+            </li>
+          </ol>
+          <!-- loading -->
+          <div class="chart_loading today_in_out_loading">
+            <div class='loader_cogs'>
+              <div class='loader_cogs__top'>
+                <div class='top_part'></div>
+                <div class='top_part'></div>
+                <div class='top_part'></div>
+                <div class='top_hole'></div>
+              </div>
+              <div class='loader_cogs__left'>
+                <div class='left_part'></div>
+                <div class='left_part'></div>
+                <div class='left_part'></div>
+                <div class='left_hole'></div>
+              </div>
+              <div class='loader_cogs__bottom'>
+                <div class='bottom_part'></div>
+                <div class='bottom_part'></div>
+                <div class='bottom_part'></div>
+                <div class='bottom_hole'>
+                  <!-- lol -->
+                </div>
+              </div>
+              <!-- <p>loading...</p> -->
+            </div>
+            <div class='loader_overlay'></div>
+          </div>
+          <!-- 规避按钮错误 -->
+          <div class="avoid_menu_error today_in_out_avoid"></div>
+        </li>
+        <li>
+          <!-- title -->
+          <div class="chart_title">历史收款与付款</div>
+          <!-- btn -->
+          <ol class="chart_menu chart_cycle_menu">
+            <li class="active" data-type="week">近一周</li>
+            <li data-type="month">近一月</li>
+            <li data-type="year">近一年</li>
+          </ol>
+          <!-- chart -->
+          <div class="history_in_out_chart"></div>
+          <!-- loading -->
+          <div class="chart_loading history_in_out_loading">
+            <div class='loader_cogs'>
+              <div class='loader_cogs__top'>
+                <div class='top_part'></div>
+                <div class='top_part'></div>
+                <div class='top_part'></div>
+                <div class='top_hole'></div>
+              </div>
+              <div class='loader_cogs__left'>
+                <div class='left_part'></div>
+                <div class='left_part'></div>
+                <div class='left_part'></div>
+                <div class='left_hole'></div>
+              </div>
+              <div class='loader_cogs__bottom'>
+                <div class='bottom_part'></div>
+                <div class='bottom_part'></div>
+                <div class='bottom_part'></div>
+                <div class='bottom_hole'>
+                  <!-- lol -->
+                </div>
+              </div>
+              <!-- <p>loading...</p> -->
+            </div>
+            <div class='loader_overlay'></div>
+          </div>
+          <!-- 规避按钮错误 -->
+          <div class="avoid_menu_error history_in_out_avoid"></div>
+        </li>
+        <li>
+          <!-- title -->
+          <div class="chart_title">商户收款与付款</div>
+          <!-- chart -->
+          <div class="user_in_out_chart"></div>
+          <!-- loading -->
+          <div class="chart_loading user_in_out_loading">
+            <div class='loader_cogs'>
+              <div class='loader_cogs__top'>
+                <div class='top_part'></div>
+                <div class='top_part'></div>
+                <div class='top_part'></div>
+                <div class='top_hole'></div>
+              </div>
+              <div class='loader_cogs__left'>
+                <div class='left_part'></div>
+                <div class='left_part'></div>
+                <div class='left_part'></div>
+                <div class='left_hole'></div>
+              </div>
+              <div class='loader_cogs__bottom'>
+                <div class='bottom_part'></div>
+                <div class='bottom_part'></div>
+                <div class='bottom_part'></div>
+                <div class='bottom_hole'></div>
+              </div>
+              <!-- <p>loading...</p> -->
+            </div>
+            <div class='loader_overlay'></div>
+          </div>
+        </li>
+        <li>
+          <!-- title -->
+          <div class="chart_title">统计</div>
+          <!-- chart -->
+          <div class="statistics_chart"></div>
+          <!-- loading -->
+          <div class="chart_loading statistics_loading">
+            <div class='loader_cogs'>
+              <div class='loader_cogs__top'>
+                <div class='top_part'></div>
+                <div class='top_part'></div>
+                <div class='top_part'></div>
+                <div class='top_hole'></div>
+              </div>
+              <div class='loader_cogs__left'>
+                <div class='left_part'></div>
+                <div class='left_part'></div>
+                <div class='left_part'></div>
+                <div class='left_hole'></div>
+              </div>
+              <div class='loader_cogs__bottom'>
+                <div class='bottom_part'></div>
+                <div class='bottom_part'></div>
+                <div class='bottom_part'></div>
+                <div class='bottom_hole'></div>
+              </div>
+              <!-- <p>loading...</p> -->
+            </div>
+            <div class='loader_overlay'></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <script src="./js/indexUnitInit.js"></script>
+</body>
+
+</html>
